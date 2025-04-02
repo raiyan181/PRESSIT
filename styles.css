@@ -192,7 +192,7 @@
 
 
 :root {
-  --primary-bg: linear-gradient(105deg, #fcb1a556,#ffd18754);
+  --primary-bg: linear-gradient(105deg, #fcb1a585,#ffd18781);
     --glass-bg: rgba(255, 255, 255, 0.1);
     --text-color: #1f2937;
     --shadow-color: rgba(0, 0, 0, 0.1);
