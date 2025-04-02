@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PressIT - Typing Master Game</title>
+    <link rel="shortcut icon" href="phone.png" type="">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="theme-toggle">
+        <i class="fas fa-moon" id="theme-icon"></i>
+    </div>
+
+    <div class="slider-container">
+        <!-- Home Page -->
+        <div class="slide active" id="home">
+            <div class="glass-container floating">
+               <div class="container-right-home">
+                <h1 style="font-size: 20px;">PressIT</h1>
+                <h2 class="H2">Master The Art Of Typing!</h2>
+                <p>Challenge yourself with our interactive typing game. <br> Improve your speed, accuracy, and become a keyboard warrior!</p>
+                <button class="cta-button" id="startTypingBtn">
+                    Start Typing <i class="fas fa-arrow-right"></i>
+                </button>
+                <button class="cta-button" id="Tutorial">
+                    Learn to Play <i class="fas fa-arrow-right"></i>
+                </button>
+               </div>
+                <div class="container-left-home">
+                    <img src="development.png" alt="">
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Section -->
+        <div class="game-section" id="gameSection">
+            <h1 class="game-title">PRESSIT</h1>
+            <div class="game-header">
+                <button class="back-to-home" id="topBackBtn">
+                    <i class="fas fa-home"></i> Back to Home
+                </button>
+                <div class="theme-toggle game-theme-toggle">
+                    <i class="fas fa-moon" id="gameThemeIcon"></i>
+                </div>
+            </div>
+
+            <div class="game-controls">
+                <button class="game-button" id="startGameBtn">Start Game</button>
+                <button class="game-button" id="customizeBtn">Customize Settings</button>
+            </div>
+            
+            <div class="game-area">
+                <div class="timer">Time: <span id="timeCounter">00:00</span></div>
+                <div class="typing-test" id="typingTest">
+                    <div id="sourceText" class="source-text"></div>
+                    <textarea id="userInput" class="user-input" spellcheck="false" placeholder="Start typing when the game begins..."></textarea>
+                </div>
+            </div>
+
+            <div class="results" id="results">
+                <div class="results-content">
+                    <h2>Your Results</h2>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <span class="stat-label">WPM</span>
+                            <span class="stat-value" id="wpmValue">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Accuracy</span>
+                            <span class="stat-value" id="accuracyValue">0%</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Time</span>
+                            <span class="stat-value" id="timeValue">0:00</span>
+                        </div>
+                    </div>
+                    <button class="cta-button" id="backToHomeBtn">Try Again</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings Sidebar -->
+        <div class="settings-sidebar" id="settingsSidebar">
+            <div class="settings-header">
+                <h2>Customize Settings</h2>
+                <button class="close-settings" id="closeSettings">&times;</button>
+            </div>
+            <div class="settings-content">
+                <div class="setting-item">
+                    <label>Word Limit</label>
+                    <div class="range-container">
+                        <input type="range" id="wordLimit" min="50" max="500" value="250" step="50">
+                        <span id="wordLimitValue">250 words</span>
+                    </div>
+                </div>
+                <div class="setting-item">
+                    <label>Font Family</label>
+                    <select id="fontFamily">
+                        <option value="'Roboto Mono', monospace">Roboto Mono</option>
+                        <option value="'Fira Code', monospace">Fira Code</option>
+                        <option value="'Source Code Pro', monospace">Source Code Pro</option>
+                    </select>
+                </div>
+                <div class="setting-item">
+                    <label>Font Size</label>
+                    <div class="range-container">
+                        <input type="range" id="fontSize" min="14" max="24" value="16" step="2">
+                        <span id="fontSizeValue">16px</span>
+                    </div>
+                </div>
+                <div class="settings-group">
+                    <label>Choose Difficulty Level:</label>
+                    <select id="difficultyLevel" class="settings-select">
+                        <option value="easy">Easy</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="overlay" id="overlay"></div>
+
+        <div class="NewSec">
+            <div class="tutorial-header">
+                <button class="tutorial-back-btn">
+                    <i class="fas fa-home"></i> Back to Home
+                </button>
+                <h1>How to Play?</h1>
+                <div class="theme-toggle tutorial-theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </div>
+            </div>
+
+            <div class="MidTutorial">
+                <div class="t1">
+                    <div><i class="fas fa-cog"></i></div>
+                    <h1>Customize your preference</h1>
+                    <p>You can customize your settings by your preferred and comfortability , You can use our featured Customize settings button, and just go on!</p>
+                </div>
+                <div class="t2">
+                    <div><i class="fas fa-keyboard"></i></div>
+                    <h1>Start Typing</h1>
+                    <p>Click the Start Game button and begin typing the displayed text. Your speed and accuracy will be measured in real-time.</p>
+                </div>
+                <div class="t3">
+                    <div><i class="fas fa-chart-line"></i></div>
+                    <h1>Track Progress</h1>
+                    <p>View your results after each session, including WPM, accuracy, and time taken. Try to improve your scores with practice!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Aiming Page -->
+        <div class="slide" id="benefits">
+            <div class="glass-container floating">
+                <h2>Our Aim</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-item top-left">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <h3>Speed Improvement</h3>
+                        <p>Boost your typing speed with progressive challenges</p>
+                    </div>
+                    <div class="benefit-item top-right">
+                        <i class="fas fa-bullseye"></i>
+                        <h3>Accuracy Focus</h3>
+                        <p>Develop precision and reduce errors while typing</p>
+                    </div>
+                    <div class="benefit-item bottom-left">
+                        <i class="fas fa-keyboard"></i>
+                        <h3>Muscle Memory</h3>
+                        <p>Build lasting keyboard skills through <br> repetition</p>
+                    </div>
+                    <div class="benefit-item bottom-right">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Progress Tracking</h3>
+                        <p>Monitor your improvement with detailed <br> stats</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Page -->
+        <div class="slide" id="about">
+            <div class="glass-container floating about-container">
+                <div class="about-content">
+                    <h2 class="gradient-text">Ehsanuddin Raiyan</h2>
+                    <div class="auto-type-wrapper primary">
+                        <span id="autoType"></span>
+                    </div>
+                    <p>hello, i created this app with my creativity and imagination of my school's ocassion "spellingBEE". i always think creatively to make a difference in my invention, and to upgrade the world into cyper digital world. I used to work in freelancing sites for temporary project building skills improvement. I'm eagerly excited to dive into the world of computer science and explore the unknown mystery key of inventing the digital future. If you're also as passionate as me, let's talk and explore adventures together!🚀</p>
+                    <button class="cta-button">
+                      <a href="https://www.instagram.com/itz_r4iy4nx/" target="_blank" style="text-decoration: none; ">  Let's Discuss <i class="fas fa-arrow-right"></i></a>
+                    </button>
+                </div>
+                <div class="about-image-container">
+                    <div class="image-frame">
+                        <img src="hero-img.png.webp" alt="Ehsanuddin Raiyan">
+                    </div>
+                    <div class="social-icons">
+                        <a href="https://github.com/raiyan181" class="social-icon" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="http://r4iy4nxlearning.infinityfreeapp.com/" class="social-icon" target="blank"><i class="fa-solid fa-globe"></i></a>
+                        <a href="https://r4iy4nxdev.infinityfreeapp.com/" class="social-icon" target="blank"><i class="fa-solid fa-link"></i></a>
+                        <a href="https://www.instagram.com/itz_r4iy4nx/" class="social-icon" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <div class="auto-type-wrapper secondary">
+                        <span id="autoTypeSecondary"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Page -->
+        <div class="slide" id="contact">
+            <div class="glass-container floating">
+               <h2 class="gradient-text contact-title"><a href="#">Get In Touch</a></h2>
+                <div class="success-message" id="successMessage">
+                    Your message has been sent, we will be in touch with you soon!
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <input type="text" placeholder="Name" required>
+                    <input type="email" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                    <textarea placeholder="Message" required></textarea>
+                    <button type="submit" class="cta-button">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="navigation-dots">
+            <div class="dot active" data-slide="home"></div>
+            <div class="dot" data-slide="benefits"></div>
+            <div class="dot" data-slide="about"></div>
+            <div class="dot" data-slide="contact"></div>
+        </div>
+    </header>
+
+    <script src="script.js"></script>
+</body>
+</html>
